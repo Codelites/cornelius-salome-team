@@ -1,8 +1,8 @@
 // import dependencies
 import mongoose from "mongoose";
-import config from '../config/main.config.js'
+
 // configure application
-const connectToDatabase = function ()
+const connectToDatabase = function (config) // type of database , connection params
 {
     // define connection
     mongoose.connect(config.db.uri, {
@@ -16,7 +16,7 @@ const connectToDatabase = function ()
     // listen for successful connection
     mongoose.connection.once("open", () =>
       console.info(`🚀  Database connection successful 🚀 `)
-    );
+  );
 }
 // export handler
 export default connectToDatabase;

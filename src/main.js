@@ -13,10 +13,10 @@ app.use(express.json())
 app.use( morgan( "dev" ) )
 
 // define routes
-app.use( 'api/v1/', router );
+app.use( '/api/v1', router );
 
 // connect to database
-connectToDatabase();
+connectToDatabase(config);
 
 // start application
 app.listen(config.server.port, () =>
